@@ -1,0 +1,46 @@
+def calculate_total(price, quantity, discount_percentage, tax_percentage):
+    subtotal = price * quantity
+    discount_amount = subtotal * (discount_percentage / 100)
+    subtotal_after_discount = subtotal - discount_amount
+    tax_amount = subtotal_after_discount * (tax_percentage / 100)
+    total = subtotal_after_discount + tax_amount
+    return subtotal, discount_amount, tax_amount, total
+
+def main():
+    
+    print("   =====================")
+    print("🎉 Welcome to the Store! 🎉")
+    print("   =====================")
+    print()  
+    
+    customer_name = input("✨ Enter the customer name: ")
+    product_name = input("🛍️ Enter the product name: ")
+    quantity = int(input("🔢 Enter the quantity: "))
+    price = float(input("💰 Enter the price: $"))
+    print()  
+    
+    print("👥 Select your customer type: ")
+    print("0 - Regular")
+    print("20 - Senior Citizen")
+    print("10 - PWD")
+    print("5 - Student")
+    discount_percentage = int(input("Enter the discount type (0, 20, 10, 5): "))
+    print()  
+    
+    print("✨ Calculating your total...")
+    print()  
+    
+    subtotal, discount_amount, tax_amount, total = calculate_total(price, quantity, discount_percentage, 12)
+    
+    print(f"Subtotal: ${subtotal:.2f}")
+    print(f"Discount: -${discount_amount:.2f}")
+    print(f"12% Less Tax: ${tax_amount:.2f}")
+    print(f"Total: ${total:.2f}")
+    print()  
+    
+    print(f"🌟 Thank you for shopping with us, {customer_name}! 🌟")
+    print("Come Back Again, Thank you! 😊")
+
+if __name__ == "__main__":
+    main()
+
